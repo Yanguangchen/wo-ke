@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="en" dir="ltr" translate="no" class="notranslate">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="google" content="notranslate">
+    <title>沃克 Wò Kè — 染发·烫发·接发 专业店</title>
+    <meta name="description" content="沃克 (Wò Kè) 美发沙龙：染发、烫发、接发、草本护理。无氨、无双氧水、清真认证的自然草本染发。">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;600;700&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="public/styles.css">
+    <script type="module" src="https://unpkg.com/@splinetool/viewer@1.10.80/build/spline-viewer.js"></script>
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container header-inner">
+        <nav class="nav" aria-label="Primary">
+          <a id="nav-specializations" href="#specializations">Specializations</a>
+          <a id="nav-services" href="#services">Services</a>
+          <a id="nav-membership" href="#membership">Membership</a>
+          <a id="nav-contact" href="#contact">Contact</a>
+          <a id="nav-media" href="#media">Media</a>
+        </nav>
+        <button id="nav-toggle" class="nav-toggle" aria-label="Menu" aria-expanded="false" aria-controls="mobile-menu">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </button>
+        <div class="lang-switch" aria-label="Language">
+          <button id="lang-en" class="lang-btn active" type="button">EN</button>
+          <button id="lang-zh" class="lang-btn" type="button">中文</button>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section id="hero" class="hero">
+        <div class="hero-bg" aria-hidden="true">
+          <canvas id="hero-canvas"></canvas>
+        </div>
+        <div class="container hero-inner reveal">
+          <h1 id="hero-title">沃克</h1>
+          <p id="hero-subtitle"></p>
+          <div class="cta-row">
+            <a id="call-primary" class="btn btn-primary" href="#">立即致电</a>
+            <a id="call-secondary" class="btn btn-outline" href="#">备用电话</a>
+          </div>
+          <div id="hero-progress" class="hero-progress reveal" aria-label="Steps">
+            <div class="progress-track">
+              <div class="progress-fill" id="hero-progress-fill"></div>
+            </div>
+            <div class="progress-nodes">
+              <button class="progress-node" data-step="0" type="button">
+                <span class="node-icon" aria-hidden="true">💬</span>
+                <span class="node-dot"></span>
+                <span class="node-label" id="hero-node-0"></span>
+              </button>
+              <button class="progress-node" data-step="1" type="button">
+                <span class="node-icon" aria-hidden="true">✂️</span>
+                <span class="node-dot"></span>
+                <span class="node-label" id="hero-node-1"></span>
+              </button>
+              <button class="progress-node" data-step="2" type="button">
+                <span class="node-icon" aria-hidden="true">✨</span>
+                <span class="node-dot"></span>
+                <span class="node-label" id="hero-node-2"></span>
+              </button>
+            </div>
+          </div>
+          <div class="hero-spline reveal" aria-hidden="true">
+            <spline-viewer loading-anim-type="spinner-small-light" url="https://prod.spline.design/JIcUYujlPkzb8Yqv/scene.splinecode"></spline-viewer>          </div>
+        </div>
+      </section>
+
+      <section id="specializations" class="section reveal">
+        <div class="container">
+          <h2 id="h2-specializations">Specializations</h2>
+          <div id="specializations-list" class="cards"></div>
+        </div>
+      </section>
+
+      <section id="services" class="section reveal">
+        <div class="container">
+          <h2 id="h2-services">Services</h2>
+          <div id="services-content" class="service-groups"></div>
+        </div>
+      </section>
+
+      <section id="membership" class="section alt reveal">
+        <div class="container">
+          <h2 id="h2-membership">Membership</h2>
+          <div id="membership-card" class="membership"></div>
+        </div>
+      </section>
+
+      <section id="contact" class="section reveal">
+        <div class="container">
+          <h2 id="h2-contact">Contact</h2>
+          <div id="contact-info" class="contact"></div>
+        </div>
+      </section>
+
+      <section id="media" class="section reveal">
+        <div class="container">
+          <h2 id="h2-media">Media</h2>
+          <div id="media-grid" class="media-grid"></div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container">
+        <nav class="footer-nav" aria-label="Footer">
+          <a id="fnav-specializations" href="#specializations">Specializations</a>
+          <a id="fnav-services" href="#services">Services</a>
+          <a id="fnav-membership" href="#membership">Membership</a>
+          <a id="fnav-contact" href="#contact">Contact</a>
+          <a id="fnav-media" href="#media">Media</a>
+        </nav>
+        <small>
+          <span id="footer-name">Wò Kè</span>
+          <span>｜</span>
+          <span id="footer-unit"></span>
+        </small>
+      </div>
+    </footer>
+
+    <!-- Mobile full-screen menu -->
+    <div id="mobile-menu" class="mobile-menu" hidden>
+      <div class="mobile-menu-inner">
+        <button id="mobile-close" class="mobile-close" aria-label="Close">×</button>
+        <nav class="mobile-nav" aria-label="Mobile Primary">
+          <a id="mnav-specializations" href="#specializations">Specializations</a>
+          <a id="mnav-services" href="#services">Services</a>
+          <a id="mnav-membership" href="#membership">Membership</a>
+          <a id="mnav-contact" href="#contact">Contact</a>
+          <a id="mnav-media" href="#media">Media</a>
+        </nav>
+      </div>
+    </div>
+
+    <script type="module" src="public/app.js"></script>
+  </body>
+  </html>
+
+
