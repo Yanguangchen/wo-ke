@@ -124,13 +124,15 @@ function renderSpecializations() {
   root.innerHTML = "";
   salonData.specializations.forEach((spec) => {
     const icon = spec.name.toLowerCase().includes("herb") ? icons.Herbal : icons.Natural;
+    const displayName = currentLang === "zh" ? (spec.nameChinese || spec.name) : spec.name;
+    const displayDesc = currentLang === "zh" ? (spec.descriptionChinese || spec.description) : spec.description;
     const card = createEl("div", "card", [
       createEl("h3", "card-title", [
         createEl("span", "icon", [icon || "✨"]),
         " ",
-        spec.name,
+        displayName,
       ]),
-      createEl("p", "card-text", [spec.description]),
+      createEl("p", "card-text", [displayDesc]),
     ]);
     root.appendChild(card);
   });
@@ -223,8 +225,10 @@ function renderContact() {
     a.href = `tel:${p}`;
     phones.appendChild(a);
   });
+  const address = createEl("div", "contact-address", [salonInfo.address || ""]);
   const unit = createEl("div", "contact-unit", [salonInfo.unitNumber]);
   root.appendChild(phones);
+  if (salonInfo.address) root.appendChild(address);
   root.appendChild(unit);
 }
 
@@ -262,6 +266,8 @@ function init() {
   injectJsonLd();
   animateHeroTypography();
   renderMedia();
+  initMembershipVideo();
+  initMembershipCardVideo();
 
   const enBtn = document.getElementById("lang-en");
   const zhBtn = document.getElementById("lang-zh");
@@ -423,6 +429,58 @@ function heroCanvas() {
 
 window.addEventListener("load", heroCanvas);
 
+// Ensure membership background video loops and plays slightly faster
+function initMembershipVideo() {
+  const video = document.querySelector('#membership .membership-bg video');
+  if (!(video instanceof HTMLVideoElement)) return;
+  video.loop = true;
+  video.muted = true;
+  video.playbackRate = 1.12;
+  video.setAttribute('playsinline', '');
+  video.setAttribute('webkit-playsinline', '');
+  video.setAttribute('muted', '');
+  video.autoplay = true;
+  video.playsInline = true;
+  const tryPlay = () => {
+    const p = video.play();
+    if (p && typeof p.catch === 'function') p.catch(() => {});
+  };
+  if (video.readyState >= 2) {
+    tryPlay();
+  } else {
+    video.addEventListener('canplay', tryPlay, { once: true });
+    // iOS/Safari may still block; attach a one-time user-gesture fallback
+    const resume = () => { tryPlay(); window.removeEventListener('touchend', resume); window.removeEventListener('click', resume); };
+    window.addEventListener('touchend', resume, { once: true });
+    window.addEventListener('click', resume, { once: true });
+  }
+}
+
+// Ensure the inline membership card video loops and autoplays
+function initMembershipCardVideo() {
+  const video = document.querySelector('#membership .membership-media video');
+  if (!(video instanceof HTMLVideoElement)) return;
+  video.loop = true;
+  video.muted = true;
+  video.setAttribute('playsinline', '');
+  video.setAttribute('webkit-playsinline', '');
+  video.setAttribute('muted', '');
+  video.autoplay = true;
+  video.playsInline = true;
+  const tryPlay = () => {
+    const p = video.play();
+    if (p && typeof p.catch === 'function') p.catch(() => {});
+  };
+  if (video.readyState >= 2) {
+    tryPlay();
+  } else {
+    video.addEventListener('canplay', tryPlay, { once: true });
+    const resume = () => { tryPlay(); window.removeEventListener('touchend', resume); window.removeEventListener('click', resume); };
+    window.addEventListener('touchend', resume, { once: true });
+    window.addEventListener('click', resume, { once: true });
+  }
+}
+
 // Structured data: JSON-LD (HairSalon)
 function injectJsonLd() {
   // Avoid duplicates
@@ -437,10 +495,11 @@ function injectJsonLd() {
     telephone: phone || undefined,
     areaServed: "Singapore",
     slogan: salonInfo.tagline,
-    // Using unit number as part of addressLocality placeholder (update when address is provided)
     address: {
       "@type": "PostalAddress",
-      addressLocality: salonInfo.unitNumber,
+      streetAddress: `${salonInfo.address || ""} ${salonInfo.unitNumber || ""}`.trim(),
+      addressLocality: "Singapore",
+      addressCountry: "SG",
     },
     brand: {
       "@type": "Brand",

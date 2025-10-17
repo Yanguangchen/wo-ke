@@ -4,6 +4,7 @@ export const salonData = {
     name: "沃克",
     namePinyin: "沃克",
     unitNumber: "#01-3627",
+    address: "164 Bukit Merah Central",
     tagline: "染发 . 烫发 . 接发 专业店",
     taglineTranslation: "Hair Coloring, Perming, Extensions Specialty Shop",
     ambiance:
@@ -16,13 +17,17 @@ export const salonData = {
   specializations: [
     {
       name: "Herbal Treatments",
+      nameChinese: "草本护理",
       description:
         "The salon prominently displays a wide variety of Chinese herbs used for hair and scalp treatments.",
+      descriptionChinese: "店内陈列多种用于头皮与头发护理的中草药。",
     },
     {
       name: "Natural Hair Colouring",
+      nameChinese: "自然草本染发",
       description:
         "Offers a 'Natural Treatment Formula Herbaceous Hair Colour' which is advertised as 100% Pure Herbal Extracts, No Hydrogen Peroxide, No Ammonia, and Halal Certified.",
+      descriptionChinese: "提供“自然治疗配方草本染发”：100% 纯草本提取物、无双氧水、无氨、清真认证。",
     },
   ],
   services: {
@@ -150,9 +155,10 @@ export const salonData = {
   },
   media: [
     // Example items; replace src with your files (place under assets/)
-    { type: "image", src: "assets/sample-1.jpg", alt: "Colouring result" },
-    { type: "video", src: "assets/sample-clip.mp4", poster: "assets/sample-1.jpg" },
-    { type: "image", src: "assets/sample-2.jpg", alt: "Perm style" },
+    { type: "image", src: "assets/1.jpg", alt: "store front" },
+    { type: "image", src: "assets/2.jpg", alt: "store interior" },
+    { type: "image", src: "assets/3.jpg", alt: "products" },
+    { type: "image", src: "assets/4.jpg", alt: "products" },
   ],
 };
 
