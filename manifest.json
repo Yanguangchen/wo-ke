@@ -1,0 +1,17 @@
+{
+  "name": "沃克 Wò Kè",
+  "short_name": "Wò Kè",
+  "description": "Hair Coloring, Perming, Extensions Specialty Shop",
+  "id": "/",
+  "start_url": "/?source=pwa",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#0c0c0c",
+  "theme_color": "#d4a373",
+  "lang": "en",
+  "dir": "ltr",
+  "categories": ["beauty", "lifestyle"],
+  "icons": []
+}
+
+
