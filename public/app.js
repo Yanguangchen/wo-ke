@@ -503,6 +503,7 @@ function injectJsonLd() {
   const json = {
     "@context": "https://schema.org",
     "@type": "HairSalon",
+    url: salonInfo.website || undefined,
     name: `${salonInfo.name} / ${salonInfo.namePinyin}`,
     description: `${salonInfo.taglineTranslation}. ${salonInfo.ambiance}`,
     telephone: phone || undefined,

@@ -1,6 +1,7 @@
 /* Salon data for Wò Kè (沃克). Bilingual fields included where relevant. */
 export const salonData = {
   salonInfo: {
+    website: "https://www.wo-ke.com/",
     name: "沃克",
     namePinyin: "沃克",
     unitNumber: "#01-3627",
