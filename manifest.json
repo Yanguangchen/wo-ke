@@ -11,7 +11,14 @@
   "lang": "en",
   "dir": "ltr",
   "categories": ["beauty", "lifestyle"],
-  "icons": []
+  "icons": [
+    {
+      "src": "/apple-icon.png",
+      "type": "image/png",
+      "sizes": "512x512",
+      "purpose": "any maskable"
+    }
+  ]
 }
 
 
