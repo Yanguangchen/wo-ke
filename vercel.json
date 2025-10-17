@@ -3,7 +3,8 @@
   "builds": [
     { "src": "index.html", "use": "@vercel/static" },
     { "src": "public/**", "use": "@vercel/static" },
-    { "src": "assets/**", "use": "@vercel/static" }
+    { "src": "assets/**", "use": "@vercel/static" },
+    { "src": "apple-icon.png", "use": "@vercel/static" }
   ],
   "routes": [
     { "handle": "filesystem" },

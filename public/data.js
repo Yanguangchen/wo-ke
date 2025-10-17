@@ -9,6 +9,14 @@ export const salonData = {
     taglineTranslation: "Hair Coloring, Perming, Extensions Specialty Shop",
     ambiance:
       "The only salon you need",
+    intro: "专业染发、烫发、接发与草本护理，让您的头发焕然一新。",
+    introEn: "Expert coloring, perming, extensions and herbal care—crafted for your best hair.",
+    introPoints: [
+      { icon: "🌿", zh: "100% 草本染发，无氨无双氧水", en: "100% herbal color, ammonia & peroxide free" },
+      { icon: "🧑‍🎓", zh: "资深发型师一对一服务", en: "Senior stylists with one‑to‑one service" },
+      { icon: "🛡️", zh: "清真认证，敏感头皮友好", en: "Halal‑certified, scalp‑friendly" },
+      { icon: "💬", zh: "中文/英文沟通无障碍", en: "Bilingual service (ZH/EN)" }
+    ],
   },
   contactInfo: {
     primaryContact: "Alan",

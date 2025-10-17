@@ -66,6 +66,19 @@ function renderHeader() {
   setText("tagline", pick(salonInfo.tagline, salonInfo.taglineTranslation));
   setText("tagline-en", currentLang === "zh" ? "" : "");
   setText("hero-subtitle", salonInfo.ambiance);
+  setText("intro-text", currentLang === "zh" ? (salonInfo.intro || "") : (salonInfo.introEn || ""));
+  const pointsRoot = document.getElementById('intro-points');
+  if (pointsRoot) {
+    pointsRoot.innerHTML = '';
+    (salonInfo.introPoints || []).forEach((p) => {
+      const li = document.createElement('li');
+      li.className = 'intro-point';
+      const text = currentLang === 'zh' ? p.zh : p.en;
+      li.appendChild(createEl('span','bullet',[p.icon || '·']));
+      li.appendChild(document.createTextNode(' ' + text));
+      pointsRoot.appendChild(li);
+    });
+  }
   setText("footer-unit", salonInfo.unitNumber);
   const footerName = document.getElementById("footer-name");
   if (footerName) footerName.textContent = currentLang === "zh" ? salonInfo.name : salonInfo.namePinyin;

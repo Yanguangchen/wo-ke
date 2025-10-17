@@ -239,6 +239,12 @@ body {
   max-width: 760px;
   color: var(--muted);
 }
+.intro-text { margin: 0; color: var(--fg); opacity: .92; font-size: 16px; }
+.intro-wrap { display: grid; gap: 14px; }
+.intro-head h2 { margin: 0; font-size: 20px; color: var(--brand); }
+.intro-points { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(auto-fit,minmax(220px,1fr)); gap: 10px; }
+.intro-point { display: flex; align-items: center; padding: 10px 12px; border: 1px solid var(--border); border-radius: 12px; background: #0f0f0f; }
+.intro-point .bullet { font-style: normal; margin-right: 8px; }
 #hero-subtitle {
   position: relative;
   z-index: 3;
