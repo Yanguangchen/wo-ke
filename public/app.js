@@ -54,6 +54,12 @@ function formatPrice(price) {
   return `$${price}`;
 }
 
+function toWhatsAppUrl(phone) {
+  const digits = String(phone || '').replace(/\D/g, '');
+  const withCountry = (digits.length === 8 && !digits.startsWith('65')) ? `65${digits}` : digits;
+  return `https://wa.me/${withCountry}`;
+}
+
 function renderHeader() {
   const { salonInfo, contactInfo } = salonData;
   const brandCn = document.getElementById("brand-cn");
@@ -87,14 +93,14 @@ function renderHeader() {
   const primaryLink = document.getElementById("call-primary");
   const secondaryLink = document.getElementById("call-secondary");
   if (primaryLink && p1) {
-    primaryLink.href = `tel:${p1}`;
+    primaryLink.href = toWhatsAppUrl(p1);
     primaryLink.textContent = pick(
       `致电 ${contactInfo.primaryContact}（${p1}）`,
       `Call ${contactInfo.primaryContact} (${p1})`
     );
   }
   if (secondaryLink && p2) {
-    secondaryLink.href = `tel:${p2}`;
+    secondaryLink.href = toWhatsAppUrl(p2);
     secondaryLink.textContent = pick(`备用 ${p2}`, `Alternate ${p2}`);
   } else if (secondaryLink) {
     secondaryLink.style.display = "none";
