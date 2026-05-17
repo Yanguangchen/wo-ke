@@ -287,6 +287,7 @@ function init() {
   renderMedia();
   initMembershipVideo();
   initMembershipCardVideo();
+  initClosureModal();
 
   const enBtn = document.getElementById("lang-en");
   const zhBtn = document.getElementById("lang-zh");
@@ -331,6 +332,20 @@ function init() {
   document.querySelectorAll('.mobile-nav a').forEach((a)=>{
     a.addEventListener('click', closeMenu);
   });
+}
+
+function initClosureModal() {
+  const modal = document.getElementById("closure-modal");
+  const closeBtn = document.getElementById("closure-modal-close");
+  if (!modal) return;
+
+  const closeModal = () => {
+    modal.style.display = "none";
+    document.body.classList.remove("modal-open");
+  };
+
+  document.body.classList.add("modal-open");
+  if (closeBtn) closeBtn.addEventListener("click", closeModal);
 }
 
 function renderMedia(){
@@ -595,5 +610,4 @@ function animateHeroTypography(){
     setTimeout(() => { el.classList.add('in'); }, idx === 0 ? 50 : 250);
   });
 }
-
 
